@@ -18,6 +18,13 @@
 @interface G8Tesseract : NSObject
 
 /**
+ *  Returns a shared instance of the underlying Tesseract library.
+ *
+ *  @return Tesseract library instance (Singleton).
+ */
++ (instancetype)sharedG8Tesseract;
+
+/**
  *  Returns the current version of the underlying Tesseract library.
  *
  *  @return The version string.

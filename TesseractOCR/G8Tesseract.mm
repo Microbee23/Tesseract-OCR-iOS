@@ -49,6 +49,16 @@ namespace tesseract {
 
 @implementation G8Tesseract
 
++ (G8Tesseract *)sharedG8Tesseract {
+    
+    static dispatch_once_t pred;
+    __strong static G8Tesseract * sharedG8Tesseract = nil;
+    dispatch_once( &pred, ^{
+        sharedG8Tesseract = [[self alloc] init];
+    });
+    return sharedG8Tesseract;
+}
+
 + (void)initialize {
     
     [super initialize];

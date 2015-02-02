@@ -24,7 +24,9 @@
 {
     self = [super init];
     if (self != nil) {
-        _tesseract = [[G8Tesseract alloc] init];
+        // Massive speed increase by using a shared single Tesseract instance instead of creating it everytime!
+        _tesseract = [G8Tesseract sharedG8Tesseract];
+//        _tesseract = [[G8Tesseract alloc] init];
         _tesseract.delegate = self;
 
         __weak __typeof(self) weakSelf = self;
